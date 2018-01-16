@@ -21,7 +21,6 @@
 	<div class="locations">
           <h3>States</h3>
 	  <h4>&nbsp;</h4>
-
           <ul class="popover">
 	    {% for state in states.values()|sort(attribute='name') %}
             <li>
@@ -49,8 +48,7 @@
 	</button>
       </section>
       <section class="places">
-	<h1>Cache {{ cache_id }}</h1>
-	<h2>Places</h2>
+	<h1>Places</h1>
 	{% for place in places.values()|sort(attribute='name') %}
 	<article>
 	  <h2>{{ place.name }}</h2>
