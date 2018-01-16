@@ -2,12 +2,13 @@
 <html lang="zxx">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../static/styles/4-common.css">
-    <link rel="stylesheet" href="../static/styles/3-header.css">
-    <link rel="stylesheet" href="../static/styles/3-footer.css">
-    <link rel="stylesheet" href="../static/styles/6-filters.css">
-    <link rel="stylesheet" href="../static/styles/8-places.css">
-    <link rel="icon" href="../static/images/icon.png" type="image/png">
+    <link rel="stylesheet" href="../static/styles/4-common.css?{{ cache_id }}">
+    <link rel="stylesheet" href="../static/styles/3-header.css?{{ cache_id }}">
+    <link rel="stylesheet" href="../static/styles/3-footer.css?{{ cache_id }}">
+    <link rel="stylesheet" href="../static/styles/6-filters.css?{{ cache_id }}">
+    <link rel="stylesheet" href="../static/styles/8-places.css?{{ cache_id }}">
+    <link rel="icon" href="../static/images/icon.png?{{ cache_id }}" type="image/png">
+
     <title>AirBnb Clone</title>
   </head>
   <body>
@@ -20,6 +21,7 @@
 	<div class="locations">
           <h3>States</h3>
 	  <h4>&nbsp;</h4>
+
           <ul class="popover">
 	    {% for state in states.values()|sort(attribute='name') %}
             <li>
@@ -47,7 +49,8 @@
 	</button>
       </section>
       <section class="places">
-	<h1>Places</h1>
+	<h1>Cache {{ cache_id }}</h1>
+	<h2>Places</h2>
 	{% for place in places.values()|sort(attribute='name') %}
 	<article>
 	  <h2>{{ place.name }}</h2>
