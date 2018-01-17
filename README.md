@@ -1,9 +1,9 @@
-# <img src="https://s3.amazonaws.com/intranet-projects-files/concepts/74/hbnb_step5.png" width="30"> AirBnB Clone V.4 - Web Dynamic
+# <img src="https://s3.amazonaws.com/intranet-projects-files/concepts/74/hbnb_step5.png" width="40"> AirBnB Clone V.4 - Web Dynamic
 
 ## Synopsis
 This is the 4th version of our AirBnB clone project. We will be incorporating JQuery and javascript
 
-<p><img src="https://s3.amazonaws.com/intranet-projects-files/concepts/74/hbnb_step5.png" width="30" alt="step5"></p>
+<p><img src="https://s3.amazonaws.com/intranet-projects-files/concepts/74/hbnb_step5.png" alt="step5"></p>
 
 ## Table of Contents
 * [Environment](#environment)
