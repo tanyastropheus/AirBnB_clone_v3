@@ -45,6 +45,12 @@ section.filters > button:hover {
     margin: 0 0 5px 0;
 }
 
+.amenities > h4 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .popover {
     display: none;
     position: relative;
