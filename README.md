@@ -1,7 +1,7 @@
 # <img src="https://www.holbertonschool.com/assets/holberton-logo-simplified-71b02868461c07d54553e4a7cc05d1926681a6755cc19030b0458f2d70ae9909.png" width="30"> AirBnB Clone V.3 - RESTful API
 
 ## Synopsis
-This is the 3rd version of our AirBnB clone project. We will be using a REST API and Flask
+This is the 4th version of our AirBnB clone project. We will be incorporating JQuery and javascript
 
 <p><img src="https://s3.amazonaws.com/intranet-projects-files/concepts/74/hbnb_step2.png" alt="step2"></p>
 
@@ -121,8 +121,12 @@ TestBaseModel class:
 * `def test_user_module_docstring(self)` - Test for the user.py module docstring
 * `def test_user_class_docstring(self)` - Test for the User class docstring
 
+#### `/web_dynamic/` directory contains .py, .js, .html, and .css files that connect back-end to front-end :
+* [/web_dynamic/static](/web_dynamic/static/styles) - contains all necessary css styles for version 4 of hbnb
+* [/web_dynamic/scripts](/web_dynamic/static/scripts) - contains all js files for version 4 of hbnb
+* [/web_dynamic/templates](/web_dynamic/templates) - contains all html files for version 4 of hbnb
 
-## Examples of use
+## Examples of use console
 ```
 vagrantAirBnB_clone$./console.py
 (hbnb) help
@@ -145,10 +149,54 @@ EOF  all  create  destroy  help  quit  show  update
 (hbnb) quit
 ```
 
+## Examples of use version 4
+First: expose ports from your Vagrantfile by adding the line "config.vm.network :forwarded_port, guest: 5000, host: 5050". Then vagrant up if the VM was not up. If it was up, vagrant halt, then vagrant up.
+
+There are two methods. Open two terminals and a browser (preferably chrome). In one terminal, clone `https://github.com/tanyastropheus/AirBnB_clone_v4.git`. To run, make sure you have mysql set up correctly. See instructions below:
+```
+If mysql permissions are not set up, please execute the following steps manually or with script(setup_mysql_dev.sql):
+* log into mysql via root with "mysql -u root -p"
+
+mysql> CREATE DATABASE IF NOT EXISTS hbnb_dev_db;
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> CREATE USER IF NOT EXISTS 'hbnb_dev'@'localhost' IDENTIFIED BY 'hbnb_dev_pwd';
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> GRANT ALL ON hbnb_dev_db.* TO 'hbnb_dev'@'localhost';
+mysql> GRANT SELECT ON performance_schema.* TO 'hbnb_dev'@'localhost';
+```
+If you are using version 5.5 of mysql, you may have to use "GRANT ALL ON \`%\`.* TO 'hbnb_dev'@'localhost'"
+
+Once database is set up, you may run the following in a terminal:
+```
+~/AirBnB_v4$ HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db python3 -m web_dynamic.0-hbnb
+* Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+....
+```
+* Once you see the ...., switch over to your second terminal to curl with the following:
+```
+~/AirBnB_v4$ curl -s -XGET http://0.0.0.0:5000/0-hbnb/ | head -6
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="../static/styles/4-common.css?e211c9eb-7d17-4f12-85eb-4d50fa50cb1d" />
+    <link rel="stylesheet" type="text/css" href="../static/styles/3-header.css?e211c9eb-7d17-4f12-85eb-4d50fa50cb1d" />
+```
+You should see the first 6 lines of an html file. If not, an error has occurred with the database.
+
+Another way to test that the website is working is to test using the browser. Go to your browser and type in "http://0.0.0.0:5050/{replace_with_filename}". A webpage should be up and running until terminated by closing the database terminal with CTRL+C.
+
 ## Bugs
 No known bugs at this time. 
 
 ## Authors
+
+###### Version 4
+
+- Tanya Kryukova - [Github](https://github.com/tanyastropheus) / [Twitter](https://twitter.com/tyastropheus)
+- Joann Vuong - [Github](https://github.com/jvpupcat) / [Twitter](https://twitter.com/jv_pupcat)
 
 ###### Version 3
 
