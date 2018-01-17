@@ -39,9 +39,18 @@ $.ajax({
   error: function () { $('DIV.available').removeClass('available'); }
 });
 
+// curl
+curl "http://0.0.0.0:5001/api/v1/places_search" -XPOST -H "Content-Type: application/json" -d '{}'
 // fetch places
 $.ajax({
-  type: 'GET',
+  type: 'POST',
+  Content-Type: 'application/json',
   url: 'http://0.0.0.0:5001/api/v1/places_search/',
-  success: function ()
+  BeforeSend: function(xhr) {
+    xhr.setRequestHeader
+  }
+  processData: false,
+  success: function(data) {
+    alert(JSON.stringify(data))
+  }
 });
