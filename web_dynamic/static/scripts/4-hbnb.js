@@ -72,15 +72,16 @@ $(function () {
   });
 });
 
-// send a POST request to places_search api when the button is clicked
+// send a POST request to places_search api when the button is clicked, filtered by amenities
 $(function () {
   $('button').on('click', function () {
     $.ajax({
       type: 'POST',
       url: 'http://0.0.0.0:5001/api/v1/places_search/',
       contentType: 'application/json',
-      data: amtys, // return data is of the form [{i: {dict of Place attributes},...] where i = 0, 1, 2,...
+      data: JSON.stringify({"amenities": Object.keys(amtys)}), // return data is of the form [{i: {dict of Place attributes},...] where i = 0, 1, 2,...
       success: function (data) { // loading places from api && recreating html for places
+	$('article').remove();
         let places = Object.values(data);
         if (places.length > 0) {
 	  places.forEach(function (place) {
