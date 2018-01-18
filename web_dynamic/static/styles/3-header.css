@@ -13,3 +13,16 @@ header {
     background: url("../images/logo.png") no-repeat center;
     padding-left: 20px;
 }
+
+#api_status {
+    background-color: #cccccc;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: 30px;
+}
+
+div#api_status.available {
+    background-color: #ff545f;
+}
