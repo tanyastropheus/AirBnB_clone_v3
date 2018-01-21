@@ -85,18 +85,33 @@ $(function () {
         let places = Object.values(data);
         if (places.length > 0) {
 	  places.forEach(function (place) {
-            let placeLayout = '<article>' +
-	      '<h2>' + place.name + '</h2>' + '<div class="price_by_night">' +
-	      '<p>' + '$' + place.price_by_night + '</p>' + '</div>' +
-	      '<div class="information">' + '<div class="max_guest">' +
-	      '<div class="guest_image">' + '</div>' + '<p>' + place.max_guest +
-	      '</p>' + '</div>' + '<div class="number_rooms">' +
-	      '<div class="bed_image">' + '</div>' + '<p>' + place.number_rooms +
-	      '</p>' + '</div>' + '<div class="number_bathrooms">' +
-	      '<div class="bath_image"></div>' + '<p>' + place.number_bathrooms +
-	      '</p>' + '</div>' + '</div>' + '<div class="user">' + '<p></p>' +
-	      '</div>' + '<div class="description">' +
-	      '<p>' + place.description + '</p>' + '</div>' + '</article>';
+            let placeLayout =
+	      '<article>' +
+                '<h2>' + place.name + '</h2>' +
+                '<div class="price_by_night">' +
+	          '<p>' + '$' + place.price_by_night + '</p>' +
+	        '</div>' +
+	        '<div class="information">' +
+	          '<div class="max_guest">' +
+	            '<div class="guest_image"></div>' +
+	            '<p>' + place.max_guest + '</p>' +
+	          '</div>' +
+	        '<div class="number_rooms">' +
+	          '<div class="bed_image"></div>' +
+	            '<p>' + place.number_rooms + '</p>' +
+	          '</div>' +
+	        '<div class="number_bathrooms">' +
+	           '<div class="bath_image"></div>' +
+	             '<p>' + place.number_bathrooms + '</p>' +
+	           '</div>' +
+	        '</div>' +
+	        '<div class="user">' +
+	          '<p></p>' +
+	        '</div>' +
+	        '<div class="description">' +
+	          '<p>' + place.description + '</p>' +
+	        '</div>' +
+	      '</article>';
             $('section.places').append(placeLayout);
 	  });
         }
